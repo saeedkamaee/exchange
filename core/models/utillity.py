@@ -18,3 +18,13 @@ class Possion (models.TextChoices):
     
     class Meta():
         abstract=True 
+
+
+class TypePic(models.TextChoices):
+    Picture = "0", "Picture"
+    Icon = "1", "Icon"
+    Document="2","Document"
+    OTHER = "3", "Other"
+
+    class Meta():
+        abstract=True

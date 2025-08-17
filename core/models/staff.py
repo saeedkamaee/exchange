@@ -2,7 +2,7 @@ from .parent import Parent
 from django.db import models
 from .utillity import Gender
 
-class staff(Parent):
+class Staff(Parent):
     """ for recoroding infromation of the all staff"""
     name=models.CharField(max_length=200,blank=False)
     family=models.CharField(max_length=400,blank=False)

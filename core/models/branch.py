@@ -1,9 +1,9 @@
 from .parent import Parent
-from django.db import models
-from django.contrib.gis.db import models
+from django.db import models  
+from django.contrib.gis.db import models 
 
 
-class brach(Parent):
+class Branch(Parent):
     """ for recoroding infromation about branchs of exchange """
     name=models.CharField(max_length=400,blank=False)
     adress=models.TextField(blank=True)
