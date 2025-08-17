@@ -11,4 +11,4 @@ class staff(Parent):
     adress=models.TextField(blank=True)
     phone=models.CharField(max_length=12,unique=True)
     gender = models.CharField(max_length=15, choices=Gender.choices,default="2")
-    
+    email=models.EmailField()
