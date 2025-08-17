@@ -5,8 +5,7 @@ class Gender(models.TextChoices):
     MALE = "1", "Male"
     OTHER = "2", "Other"
 
-    class Meta():
-        abstract=True
+
 
 
 
@@ -16,9 +15,6 @@ class Possion (models.TextChoices):
     Accountant= "2","Accountant"
     Cleaner="3","Cleaner"
     
-    class Meta():
-        abstract=True 
-
 
 class TypePic(models.TextChoices):
     Picture = "0", "Picture"
@@ -26,13 +22,9 @@ class TypePic(models.TextChoices):
     Document="2","Document"
     OTHER = "3", "Other"
 
-    class Meta():
-        abstract=True
 
 
 class TypeDeal(models.TextChoices):
     Sell = "0", "Sell"
     Buy = "1", "Buy"
    
-    class Meta():
-        abstract=True

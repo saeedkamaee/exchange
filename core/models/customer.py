@@ -13,4 +13,8 @@ class Customer(Parent):
     birthday = models.DateField()
     adress=models.TextField(blank=True)
     phone=models.CharField(max_length=12,unique=True)
+
+    def __str__(self):
+        return f"{self.name} {self.family}"
+
     

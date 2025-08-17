@@ -17,24 +17,24 @@ class StaffBranch(Parent):
     
     class Meta:
         unique_together = [
-            ['staff', 'branch', 'position']  # جلوگیری از ثبت تکراری
-            ['branch', 'position'] 
+            ('staff', 'branch', 'possion')  ,# جلوگیری از ثبت تکراری
+            ('branch', 'possion') 
             ]
         verbose_name_plural = "StaffBranches"
         
-        def clean(self):
-        # اعتبارسنجی سفارشی برای محدودیت "هر شعبه یک رئیس"
-            if self.position == "Boss":
-                existing_boss = StaffBranch.objects.filter(
-                    branch=self.branch,
-                    position="Boss"
-                ).exclude(pk=self.pk).first()  # exclude برای موارد ویرایش
-                
-                if existing_boss:
-                    raise ValidationError(
-                        f"شعبه {self.branch} هم‌اکنون رئیس دارد: {existing_boss.staff}"
-                    )
+    def clean(self):
+    # اعتبارسنجی سفارشی برای محدودیت "هر شعبه یک رئیس"
+        if self.position == "Boss":
+            existing_boss = StaffBranch.objects.filter(
+                branch=self.branch,
+                position="Boss"
+            ).exclude(pk=self.pk).first()  # exclude برای موارد ویرایش
+            
+            if existing_boss:
+                raise ValidationError(
+                    f"شعبه {self.branch} هم‌اکنون رئیس دارد: {existing_boss.staff}"
+                )
 
-        def save(self, *args, **kwargs):
-            self.full_clean()  # تضمین اجرای اعتبارسنجی‌ها قبل از ذخیره
-            super().save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        self.full_clean()  # تضمین اجرای اعتبارسنجی‌ها قبل از ذخیره
+        super().save(*args, **kwargs)
