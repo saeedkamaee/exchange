@@ -12,3 +12,6 @@ class Staff(Parent):
     phone=models.CharField(max_length=12,unique=True)
     gender = models.CharField(max_length=15, choices=Gender.choices,default="2")
     email=models.EmailField()
+
+    def __str__(self):
+        return f"{self.name} {self.family}"

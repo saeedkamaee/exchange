@@ -10,14 +10,14 @@ from .utillity import Possion
 class StaffBranch(Parent):
     """ for creat relationship between staff and brach"""
     staff=models.ForeignKey(Staff,on_delete=models.CASCADE)
-    Branch=models.ForeignKey(Branch,on_delete=models.CASCADE)
+    branch=models.ForeignKey(Branch,on_delete=models.CASCADE)
     possion = models.CharField(max_length=15, choices=Possion.choices,default="1")
     startdate=models.DateField()
     solary=models.DecimalField(max_digits=20,decimal_places=2,default=0.00)
     
     class Meta:
         unique_together = [
-            ['staff', 'Branch', 'position']  # جلوگیری از ثبت تکراری
+            ['staff', 'branch', 'position']  # جلوگیری از ثبت تکراری
             ['branch', 'position'] 
             ]
         verbose_name_plural = "StaffBranches"

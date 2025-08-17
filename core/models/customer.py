@@ -1,5 +1,6 @@
-from .parent import Parent
 from django.db import models
+
+from .parent import Parent
 from .utillity import Gender
 
 

@@ -28,3 +28,11 @@ class TypePic(models.TextChoices):
 
     class Meta():
         abstract=True
+
+
+class TypeDeal(models.TextChoices):
+    Sell = "0", "Sell"
+    Buy = "1", "Buy"
+   
+    class Meta():
+        abstract=True
